@@ -4,11 +4,16 @@ import { dbo } from '../connectDB.js';
 import { ObjectId } from 'mongodb';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { ADMIN_COLLECTION } from '../config/constant.js';
+import { STUDENT_COLLECTION, ADMIN_COLLECTION } from '../config/constant.js';
 
 export const addStudent = async (req, res) => {
     try{
-        const { name, email, grade } = req.body;
+        const { name, email, grade, dob, section, city } = req.body;
+
+        const collection = dbo.collection(STUDENT_COLLECTION);
+        const data = await collection.insertOne({ name, email, grade, dob, section, city });
+
+        res.status(200).json({ data });
     }
     catch(error){
         console.log(error);
