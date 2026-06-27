@@ -8,7 +8,7 @@ import { ADMIN_COLLECTION } from '../config/constant.js';
 
 export const addStudent = async (req, res) => {
     try{
-        const {name, email, class, } = req.body;
+        const { name, email, grade } = req.body;
     }
     catch(error){
         console.log(error);
