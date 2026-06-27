@@ -30,7 +30,7 @@ app.use('/student', studentRoutes);
 
 app.use('/teacher', teacherRoutes);
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
     console.log(`server is listening at http://localhost:${PORT}`);
